@@ -7,9 +7,8 @@ with open('input') as infile:
     boards = [[[int(field) for field in re.split(' +', line.strip())] for line in board.split('\n')] for board in text_boards]
 
 def create_winconditions(board):
-    boardsize = len(board)
     horizontal_winconditions = [set(line) for line in board]
-    vertical_wincondidtions = [{line[idx] for line in board} for idx in range(boardsize)]
+    vertical_wincondidtions = [{line[idx] for line in board} for idx in range(len(board[0]))]
     return horizontal_winconditions + vertical_wincondidtions
 
 def does_win(winconditions, called_numbers):
